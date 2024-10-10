@@ -14,10 +14,9 @@ const Form = () =>{
     if ((name.length > 2)){
       if (email.includes('@') &&  email.includes('.')){
           if (password == confirmPassword){
-            setIsLoggedIn(true)
+            localStorage.setItem('login','true')
             console.log("log in successful")
-            localStorage.setItem("isLoggedIn",'true')
-            navigate("/home")
+            window.location.href = '/'
           }
           else{
             console.log("Password doesn't match")
