@@ -19,7 +19,7 @@ function App() {
           <Routes element={<Protected />}>        
                 <Route path= "/home" element={<ProductPage/>} />
                 <Route path="/productdetails" element={<ProductDetails/>}/>
-                <Route path="/cart" element= {<CartPage/>} />
+                <Route path=" /cart" element= {<CartPage/>} />
 
  
           </Routes>     
