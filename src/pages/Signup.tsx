@@ -5,14 +5,14 @@ import RightSide from '../components/Signuppage/RightSide/RightSide'
 const Signup = () => {
 
   return (
-    <body className="bg-gray-50">
+    <div className="bg-gray-50">
       
     <div className="flex min-h-screen">
       <LeftSide />
       <RightSide />
     </div>
     
-    </body>
+    </div>
   )
 }
 

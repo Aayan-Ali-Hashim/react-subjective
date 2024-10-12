@@ -8,10 +8,10 @@ import { ReactNode } from 'react'
     const isLoggedIn: boolean = localStorage.getItem('login') === 'true'
 
 
-    if (!isLoggedIn)  { 
-        return <Navigate to="/login" replace /> 
-
-        } 
+    if (!isLoggedIn) {
+        return <Navigate to="/signup" replace />
+    }
+    
     return children ? children : <Outlet /> 
 } 
 export default ProtectedRoute

@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ProductPage = () => {
+const [products,setProducts] = useState([])
+  const Fetch = () => {
+    useEffect(() => {
+      fetch('https://fakestoreapi.com/products')
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setProducts(data)
+        });
+    }, []);
+  };
 
+  Fetch()
+
+  const navigate = useNavigate();
   return (
     <div>
     
@@ -59,7 +76,7 @@ const ProductPage = () => {
       <div className="mx-auto max-w-3xl px-3 py-5 text-center md:py-10">
         <h1
           className="text-3xl font-semibold leading-tight text-[#1E1E1E] md:text-[40px]"
-        >
+          >
           All-in-One E-commerce App
         </h1>
         <h2 className="mt-5 text-lg font-medium text-[#1E1E1E]">
@@ -74,63 +91,31 @@ const ProductPage = () => {
       <h1 className="mb-6 text-3xl font-bold text-gray-800">Featured Products</h1>
       {/* <!-- Product Grid --> */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
         {/* <!-- Product Card 1 --> */}
-        <div className="border-green-200 overflow-hidden rounded-lg border bg-white">
+          {products.map((product) => (
+
+            <div key= {product.id} className="border-green-200 overflow-hidden rounded-lg border bg-white hover:bg-gray-200"  onClick={() => navigate("/productdetails")} >
           <img
             className="h-48 w-full object-cover"
-            src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+            src={product.image}
             alt="Product 1"
-          />
+            />
           <div className="p-4">
             <h3 className="mb-2 text-lg font-semibold text-gray-800">
-              Premium Jacket
+              {product.title}
             </h3>
-            <p className="mb-4 text-gray-600">$99.99</p>
+            <p className="mb-4 text-gray-600">$ {product.price}</p>
             <button
               className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            >
+              >
               Buy Now
             </button>
           </div>
         </div>
-        {/* <!-- Product Card 2 --> */}
-        <div className="boder-green-200 overflow-hidden rounded-lg border bg-white">
-          <img
-            className="h-48 w-full object-cover"
-            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-            alt="Product 2"
-          />
-          <div className="p-4">
-            <h3 className="mb-2 text-lg font-semibold text-gray-800">
-              Stylish Backpack
-            </h3>
-            <p className="mb-4 text-gray-600">$49.99</p>
-            <button
-              className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            >
-              Buy Now
-            </button>
-          </div>
-        </div>
-        {/* <!-- Product Card 3 --> */}
-        <div className="boder-green-200 overflow-hidden rounded-lg border bg-white">
-          <img
-            className="h-48 w-full object-cover"
-            src="https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg"
-            alt="Product 3"
-          />
-          <div className="p-4">
-            <h3 className="mb-2 text-lg font-semibold text-gray-800">
-              Classic Shoes
-            </h3>
-            <p className="mb-4 text-gray-600">$79.99</p>
-            <button
-              className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            >
-              Buy Now
-            </button>
-          </div>
-        </div>
+          ))
+          }
+       
       </div>
     </div>
 
