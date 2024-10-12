@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const ProductPage = () => {
-const [products,setProducts] = useState([])
+const [products, setProducts] = useState<Product[]>([]);
   const Fetch = () => {
     useEffect(() => {
       fetch('https://fakestoreapi.com/products')
@@ -19,6 +19,13 @@ const [products,setProducts] = useState([])
   Fetch()
 
   const navigate = useNavigate();
+
+  interface Product {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+  }
   return (
     <div>
     

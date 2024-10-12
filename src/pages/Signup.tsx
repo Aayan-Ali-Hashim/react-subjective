@@ -1,4 +1,3 @@
-import React from 'react'
 import LeftSide from '../components/Signuppage/leftside/LeftSide'
 import RightSide from '../components/Signuppage/RightSide/RightSide'
 

@@ -1,23 +1,9 @@
-import { Navigate, Route, useNavigate } from "react-router-dom"
+import { Route, useNavigate } from "react-router-dom"
 import PublicRoute from "../../../../../utils/PublicRoute"
 import LoginPage from "../../../../../pages/LoginPage"
 
 const AdditionalLink = () =>{
   const navigate = useNavigate();
-  const handleRoute = (e: React.FormEvent<HTMLFormElement>)=>{
-    e.preventDefault()
-    {
-      <Route 
-      path= "/login"
-      element = {
-        <PublicRoute>
-          <LoginPage />
-      </PublicRoute>
-    }
-    />
-  }
-
-  }
     return(
 
         // <!-- Additional Link -->

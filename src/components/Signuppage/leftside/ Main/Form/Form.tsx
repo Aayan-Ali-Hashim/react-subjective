@@ -1,13 +1,10 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
 const Form = () =>{
   const [name,setName] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const [confirmPassword,setConfirmPassword ]   = useState('')
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
-
-  const navigate = useNavigate()
+  // const [isLoggedIn,setIsLoggedIn] = useState(false)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
     // console.log(name,email,password,confirmPassword);
