@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams} from "react-router-dom";
-
-const Product = () => {
+const Product = (props:any) => {
     // const [products,setProducts] = useState([])
   const navigate = useNavigate();
   const { productId } = useParams();
@@ -15,7 +14,6 @@ const Product = () => {
     price: number;
   }
   
-//   const [cart, setCart] = useState([]);
 
  useEffect(() => {
    fetch(`https://fakestoreapi.com/products/${productId}`)
@@ -27,7 +25,8 @@ const Product = () => {
        setData(data)
      });
  }, [productId]);
-  
+
+props.setCart(productId)
   return(
         <div>
          
@@ -134,8 +133,8 @@ const Product = () => {
               <button
                 className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
                 onClick={
-                    
                     () => {navigate(`/cart`)
+                       
                     }
                 }
                 

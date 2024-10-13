@@ -1,5 +1,6 @@
 
-const CartPage = () => {
+const CartPage = (props:any) => {
+  console.log(props.cart)
   return (
     <div>
       <>

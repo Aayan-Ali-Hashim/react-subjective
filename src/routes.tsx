@@ -7,7 +7,9 @@ import Layout from "./components/Signuppage/Layout"
 import CartPage from "./pages/CartPage"
 import LoginPage from "./pages/LoginPage"
 import Product from "./components/Product"
-
+import { useState } from "react"
+import useCart from "./components/useCart"
+const {cart,setCart} = useCart()
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout />}>
@@ -23,7 +25,11 @@ const router = createBrowserRouter(
       path="/product/:productId" 
       element={
         <ProtectedRoute>
-            <Product />
+            {
+                cart ? 
+                <Product setCart = {setCart}/>
+                  
+                  : null}
 
         </ProtectedRoute>
     }
@@ -32,7 +38,7 @@ const router = createBrowserRouter(
        path="/cart" 
        element={
        <ProtectedRoute> 
-         <CartPage />
+         <CartPage cart = {cart} />
         </ProtectedRoute>
       } 
       />
