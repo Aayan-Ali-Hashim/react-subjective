@@ -27,7 +27,7 @@ const router = createBrowserRouter(
         <ProtectedRoute>
             {
                 cart ? 
-                <Product setCart = {setCart}/>
+                <Product cartFunc = {setCart}/>
                   
                   : null}
 

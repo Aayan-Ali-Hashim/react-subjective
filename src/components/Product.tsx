@@ -26,7 +26,7 @@ const Product = (props:any) => {
      });
  }, [productId]);
 
-props.setCart(productId)
+props.cartFunc(productId)
   return(
         <div>
          
