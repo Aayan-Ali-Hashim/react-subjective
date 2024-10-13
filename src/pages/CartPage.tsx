@@ -86,7 +86,7 @@ const CartPage = () => {
               />
               <div>
                 <h2 className="text-lg font-semibold text-gray-800">
-                  Product Title
+                  {/* {localStorage.getItem()} */}
                 </h2>
                 <p className="text-sm text-gray-500">Price: $99.99</p>
               </div>
